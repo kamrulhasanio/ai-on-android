@@ -13,14 +13,7 @@ Follow these steps to install Termux on your Android device:
 3. Install the APK on your device.
 4. Open Termux.
 
-### 2. Update Termux Packages
-Before running the installation script, update the Termux packages by executing the following command:
-
-```bash
-pkg update -y && pkg upgrade -y
-```
-
-### 3. Run Installation Script
+### 2. Run Installation Script
 Execute the following command to download and run the installation script, which automates the setup process for running AI models on your device:
 
 ```bash
