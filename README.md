@@ -51,5 +51,5 @@ Once the installation is complete, you can run AI models directly from your Andr
         ```
 
 ## Credits
-- The installation script is sourced from the [ollama-termux](https://github.com/ollama-termux) repository.
+- The Ollama installation script is sourced from the [ollama-termux](https://github.com/ollama-termux) repository.
 - ChatGPT was used to assist in creating the Redme file and for some logic within the scripts.
