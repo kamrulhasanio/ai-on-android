@@ -13,7 +13,6 @@ install_ollama() {
     wget https://github.com/kamrulhasanio/ai-on-android/blob/main/ollama-installer.sh
     bash ollama-installer.sh
     rm ollama-installer.sh
-
     if command_exists ollama; then
         echo "✅ Ollama installed successfully."
     else
@@ -41,20 +40,11 @@ setup_aliases() {
     echo "Setting up aliases..."
     ALIAS_FILE="$HOME/.bashrc"
     sed -i '/alias start_ollama=/d' "$ALIAS_FILE"
-    sed -i '/alias start_qwen=/d' "$ALIAS_FILE"
-    sed -i '/alias start_deepseek=/d' "$ALIAS_FILE"
-
-    {
-        echo "alias start_ollama='nohup ollama serve > ollama.log 2>&1 &'"
-        if [[ "$selected_model" == "qwen2.5:0.5b" ]]; then
-            echo "alias qwen='ollama run qwen2.5:0.5b'"
-        elif [[ "$selected_model" == "deepseek-r1:1.5b" ]]; then
-            echo "alias deepseek='ollama run deepseek-r1:1.5b'"
-        fi
-    } >> "$ALIAS_FILE"
-
+    
+    echo "alias start_ollama='nohup ollama serve > ollama.log 2>&1 &'" >> "$ALIAS_FILE"
+    
     source "$ALIAS_FILE"
-    echo "✅ Aliases set up successfully and applied."
+    echo "✅ Alias for Ollama set up successfully."
 }
 
 if command_exists ollama; then
@@ -101,7 +91,6 @@ if [[ -z "$model_installed" ]]; then
     echo "1) deepseek-r1:1.5b"
     echo "2) qwen2.5:0.5b"
     read -p "Enter your choice (1/2): " model_choice
-
     if [[ "$model_choice" == "1" ]]; then
         selected_model="deepseek-r1:1.5b"
     elif [[ "$model_choice" == "2" ]]; then
@@ -110,21 +99,18 @@ if [[ -z "$model_installed" ]]; then
         echo "❌ Invalid option. Exiting..."
         exit 1
     fi
-
     install_model "$selected_model"
 fi
 
 setup_aliases
 
-echo "✅ Installation complete! Here’s how to use it:"
+echo "✅ Installation complete! Here's how to use your AI model:"
 echo ""
-echo "1️⃣ Start Ollama:   start_ollama"
-echo "2️⃣ Run AI Model:"
-
-if [[ "$selected_model" == "qwen2.5:0.5b" ]]; then
-    echo "   - Use 'start_qwen' to start the Qwen model."
-elif [[ "$selected_model" == "deepseek-r1:1.5b" ]]; then
-    echo "   - Use 'start_deepseek' to start the DeepSeek model."
-fi
-
+echo "👉 First, you need to start Ollama:"
+echo "   Use the command:   start_ollama"
+echo ""
+echo "👉 Once Ollama is running, you can start your installed AI model:"
+echo "   - For Qwen:       ollama run qwen2.5:0.5b"
+echo "   - For DeepSeek:   ollama run deepseek-r1:1.5b"
+echo ""
 echo "🎉 Enjoy your AI experience!"
