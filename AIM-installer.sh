@@ -41,8 +41,8 @@ setup_aliases() {
     echo "Setting up aliases..."
     ALIAS_FILE="$HOME/.bashrc"
     sed -i '/alias start_ollama=/d' "$ALIAS_FILE"
-    sed -i '/alias qwen=/d' "$ALIAS_FILE"
-    sed -i '/alias deepseek=/d' "$ALIAS_FILE"
+    sed -i '/alias start_qwen=/d' "$ALIAS_FILE"
+    sed -i '/alias start_deepseek=/d' "$ALIAS_FILE"
 
     {
         echo "alias start_ollama='nohup ollama serve > ollama.log 2>&1 &'"
@@ -122,9 +122,9 @@ echo "1️⃣ Start Ollama:   start_ollama"
 echo "2️⃣ Run AI Model:"
 
 if [[ "$selected_model" == "qwen2.5:0.5b" ]]; then
-    echo "   - Use 'qwen' to start the Qwen model."
+    echo "   - Use 'start_qwen' to start the Qwen model."
 elif [[ "$selected_model" == "deepseek-r1:1.5b" ]]; then
-    echo "   - Use 'deepseek' to start the DeepSeek model."
+    echo "   - Use 'start_deepseek' to start the DeepSeek model."
 fi
 
 echo "🎉 Enjoy your AI experience!"
