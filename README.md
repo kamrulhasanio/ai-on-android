@@ -2,7 +2,7 @@
 **Use AI models locally on your Android device using Ollama.**
 
 ## Description
-This project provides a script to install and run AI models (deepseek-r1:1.5b & qwen2.5:0.5b) locally on Android devices using Ollama. It leverages Termux to set up the necessary environment, allowing users to execute AI models without relying on cloud services.
+This project provides a script to install AI models (Deepseek-R1:1.5B & Qwen2.5:0.5B) locally on Android devices using Ollama. It sets up the necessary environment through Termux, allowing users to install and run AI models independently, without relying on cloud services.
 
 ## Installation
 
